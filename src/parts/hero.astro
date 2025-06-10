@@ -1,0 +1,19 @@
+---
+
+export type Props = {
+    src: string;
+}
+
+const {src} = Astro.props;
+
+---
+
+<section style={`--hero-url: url("${src}")`} class="hero">
+    
+
+    <div>
+        <div>
+        <slot />
+    </div>
+    </div>
+</section>
