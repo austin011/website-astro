@@ -50,7 +50,34 @@ body {
     }
 
     :where(button) {
-      @apply min-w-[var(--button-max-width)] w-fit bg-gradient-to-tr from-accent/75 via-accent/75 to-secondary/75 text-[var(--text-light)]  rounded-lg p-1.5 hover:scale-105 transition-all active:scale-95 text-lg border border-white/75;
+      @apply min-w-[var(--button-max-width)] w-fit text-[var(--text-light)] rounded-lg p-1.5 text-lg bg-gradient-to-tr from-accent/85 via-accent/85 to-secondary/75 bg-blend-multiply;
+      @apply hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out;
+
+      @apply relative overflow-hidden shadow-md hover:shadow-lg;
+
+      &:hover::before {
+        content: "";
+        @apply absolute inset-0 bg-white/10 rounded-lg blur-sm;
+      }
+
+      &:focus-visible {
+        @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-white;
+      }
+
+      &:hover::after {
+        content: "";
+        @apply absolute w-[120%] h-[120%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none;
+        background: radial-gradient(
+          ellipse at center,
+          white 0%,
+          transparent 70%
+        );
+        @apply opacity-20 blur-md;
+      }
+
+      &:hover::after {
+        left: 125%;
+      }
     }
 
     header {
