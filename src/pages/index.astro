@@ -1,38 +1,31 @@
 ---
+import Button from "../parts/button.tsx";
 import Hero from "../parts/hero.astro";
 import Page from "../parts/page.astro";
+import Animated from "../parts/react/animated.tsx";
 
 
 ---
 
 <Page title="Home" description="Home">
    <Hero src="/hero-home.jpg">
-    <h1>Hello World</h1>
-    <p data-type="text">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quaerat minima laudantium rerum perspiciatis iure suscipit nulla beatae facere! Iure quis qui sit nihil ipsam ut, praesentium voluptas maiores tenetur.
-    </p>
-    <button>
-      Click
-    </button>
-    <button class="secondary">
-      Click
-    </button>
-    <button class="white">
-      Click
-    </button>
+    <Animated className="text-center max-w-xl mx-auto w-full" tag="h1" client:load>
+      Websites Reimagined
+    </Animated>
+    <Animated delay={0.5} data-type="text" className="text-center max-w-lg w-full mx-auto" tag='p' client:load >
+      Explore how our tailored web solutions can elevate your brand, boost performance, and captivate a unique audience.
+    </Animated>
+    <Button initial={{opacity: 0}} animate={{ opacity: 1, transition: {delay: 2, duration: 0.5} }} className="mx-auto" client:load>
+      Discover How
+    </Button>
   </Hero>
 
   <section>
-    <h2>Hello World</h2>
-    <h3>Hello World</h3>
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. At aliquid,
-      voluptate iste culpa dolorum doloremque sit delectus soluta voluptatem,
-      perspiciatis esse in, nesciunt magni rem ab autem cumque accusamus
-      perferendis!
-    </p>
-    <button>
-      Click
-    </button>
+    <Animated tag='h2' client:visible>
+      Welcome
+    </Animated>
+    <Animated tag='p' client:visible>
+      Explore how our tailored web solutions can elevate your brand, boost performance, and captivate a unique audience.
+    </Animated>
   </section>
 </Page>
